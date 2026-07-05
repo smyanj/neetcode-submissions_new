@@ -1,0 +1,31 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        countS, countT = {}, {}
+        if len(s) != len(t):
+            return False
+            
+        for st in s:
+            if st not in countS:
+                countS[st] = 1
+            else:
+                countS[st] += 1
+
+        print(countS)
+        for tt in t:
+            if tt not in countT:
+                countT[tt] = 1
+            else:
+                countT[tt] += 1
+
+        print(countT)
+        for v in countS:
+            if v not in countT:
+                return False
+            if v in countT:
+                if countS[v] != countT[v]:
+                    return False
+
+        
+
+        return True
+            
